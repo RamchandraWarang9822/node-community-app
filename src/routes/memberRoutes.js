@@ -7,9 +7,9 @@ const router = express.Router();
 router.post("/v1/member", async (req, res) => {
   try {
     const { community, user, role } = req.body;
-    const member = new Member({ community, user, role });
-    await member.save();
-    res.status(201).json(member);
+    const members = new Member({ community, user, role });
+    await members.save();
+    res.status(201).json(members);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
